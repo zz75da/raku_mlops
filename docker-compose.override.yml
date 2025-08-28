@@ -1,0 +1,10 @@
+services:
+  model-api:
+    environment:
+      - ARTIFACTS_PATH=/app/artifacts
+      - MODEL_PATH=/app/artifacts/neural_network_model.h5
+      - VECTORIZER_PATH=/app/artifacts/text_vectorizer.pkl
+      - PCA_PATH=/app/artifacts/pca_model.pkl
+      - LABEL_ENCODER_PATH=/app/artifacts/label_encoder.pkl
+    volumes:
+      - ./artifacts:/app/artifacts:ro

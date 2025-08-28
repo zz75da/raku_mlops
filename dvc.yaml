@@ -1,0 +1,24 @@
+# Fichier dvc.yaml
+
+# Étapes du pipeline DVC
+stages:
+  # Étape de prétraitement des données
+  data_preparation:
+    cmd: python src/prepare_data.py --input-data data/raw_data.csv --output-data data/training_data.csv
+    deps:
+      - data/raw_data.csv
+      - src/prepare_data.py
+    outs:
+      - data/training_data.csv
+
+  # Étape d'entraînement du modèle
+  train_model:
+    cmd: python src/train.py
+    deps:
+      - data/training_data.csv
+      - src/train.py
+    outs:
+      # Les artefacts du modèle sont versionnés par DVC
+      - artifacts/neural_network_model.h5
+      - artifacts/text_vectorizer.pkl
+      - artifacts/label_encoder.pkl

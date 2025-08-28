@@ -1,0 +1,8 @@
+-r base.txt
+
+streamlit>=1.36
+matplotlib==3.9.2
+tqdm==4.66.4
+spacy==3.7.5
+requests==2.32.3
+

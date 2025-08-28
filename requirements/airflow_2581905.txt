@@ -1,0 +1,19 @@
+-r base.txt
+
+mlflow==2.8.0
+pillow==10.4.0
+prometheus-client==0.20.0
+psycopg2-binary==2.9.9
+opencv-python==4.10.0.84
+protobuf==4.25.3
+h5py==3.11.0
+tqdm==4.66.4
+requests==2.32.3
+shap==0.45.1
+cryptography==42.0.8
+boto3==1.34.162
+cloudpickle==2.0.0
+tensorflow-cpu==2.16.1
+tqdm==4.66.4
+
+
