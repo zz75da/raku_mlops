@@ -1,0 +1,8 @@
+# DagsHub and DVC-related files
+.dvc/
+.dvcignore
+.ipynb_checkpoints/
+.DS_Store
+
+# Ignore the data folder permanently
+/data/
