@@ -8,3 +8,6 @@
 /data/
 /artifacts
 /data
+.venv/
+data/image/
+artifacts/
