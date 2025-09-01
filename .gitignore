@@ -6,3 +6,5 @@
 
 # Ignore the data folder permanently
 /data/
+/artifacts
+/data
