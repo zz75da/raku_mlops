@@ -1,13 +1,20 @@
-# DagsHub and DVC-related files
-.dvc/
-.dvcignore
-.ipynb_checkpoints/
-.DS_Store
+# venv / builds
+venv/
+.env
+*.egg-info/
+__pycache__/
+*.pyc
+dist/
+build/
 
-# Ignore the data folder permanently
-/data/
-/artifacts
-/data
-.venv/
-data/image/
+# DVC cache & artefacts locaux (la config locale reste non versionnée)
+.dvc/tmp/
+.dvc/cache/
+
+# Logs / outputs
+logs/
+**/*.log
+
+# Data suivies par DVC (DVC ajoutera aussi ses propres entrées)
+data/
 artifacts/

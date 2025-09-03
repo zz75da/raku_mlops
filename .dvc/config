@@ -1,7 +1,0 @@
-[core]
-    remote = origin
-['remote "origin"']
-    url = s3://dvc
-    endpointurl = http://minio:9000
-    access_key_id = minio
-    secret_access_key = minio123
