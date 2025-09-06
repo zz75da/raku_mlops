@@ -74,7 +74,7 @@ The project includes a comprehensive test suite with both unit and integration t
 
 ### Running Tests
 
-\\\ash
+\\\Bash
 # Install test dependencies
 pip install -r requirements-test.txt
 
@@ -97,4 +97,5 @@ equirements-test.txt\ and include:
 - pytest-cov
 - requests-mock
 - httpx
+
 
