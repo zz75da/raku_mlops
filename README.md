@@ -71,14 +71,14 @@ The project includes a comprehensive test suite with both unit and integration t
 
 ### Test Structure
 
-- \	ests/unit/\: Unit tests for individual components
-  - \	est_preprocess.py\: Tests for preprocessing functions
-  - \	est_models.py\: Tests for ML models and utilities
-- \	ests/integration/\: Integration tests
-  - \	est_api_integration.py\: API integration tests
-  - \	est_workflow.py\: End-to-end workflow tests
-- \	ests/conftest.py\: Shared test fixtures and configuration
-- \	ests/run_tests.py\": Main test runner script
+- \	tests/unit/\: Unit tests for individual components
+  - \	test_preprocess.py\: Tests for preprocessing functions
+  - \	test_models.py\: Tests for ML models and utilities
+- \	tests/integration/\: Integration tests
+  - \	test_api_integration.py\: API integration tests
+  - \	test_workflow.py\: End-to-end workflow tests
+- \	tests/conftest.py\: Shared test fixtures and configuration
+- \	tests/run_tests.py\: Main test runner script
 
 ### Running Tests
 
@@ -105,6 +105,7 @@ equirements-test.txt\ and include:
 - pytest-cov
 - requests-mock
 - httpx
+
 
 
 
