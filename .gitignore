@@ -42,6 +42,14 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Test-specific cache files (keep test source, ignore cache)
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+*.cover
+.mypy_cache/
+
 # Logs
 logs/
 *.log

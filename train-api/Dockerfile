@@ -3,24 +3,25 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install system dependencies for building and data handling
+# Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
     libxrender1 \
-    libgl1-mesa-glx \
-    git \
+    libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy and install dependencies
-COPY train-api/requirements.txt .
+# Copy and install dependencies (tensorflow is already in requirements.txt)
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code and necessary data
-COPY train-api/app.py .
-COPY data /app/data
+# Download spacy model
+RUN python -m spacy download en_core_web_sm
+
+# Copy application code
+COPY app.py .
 
 EXPOSE 5002
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5002"]

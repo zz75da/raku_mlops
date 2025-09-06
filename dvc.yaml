@@ -1,0 +1,31 @@
+stages:
+  # Stage to preprocess the data and extract features using the preprocess-api service.
+  preprocess_and_extract:
+    cmd: docker compose run --rm preprocess-api python app.py --run-dvc
+    deps:
+      - data/X_train_update.csv
+      - data/Y_train_CVw08PX.csv
+      - preprocess-api/app.py
+      - params.yaml
+    outs:
+      - artifacts/text_vectorizer.pkl
+      - artifacts/text_features.npy
+      - artifacts/image_features.npy
+      - artifacts/label_encoder.pkl
+      - artifacts/pca_model.pkl
+      - artifacts/pca_text_model.pkl
+
+  # Stage to train the model using the train-api service.
+  train_model:
+    cmd: docker compose run --rm train-api python train.py --run-dvc
+    deps:
+      - train-api/train.py
+      - params.yaml
+      - artifacts/image_features.npy
+      - artifacts/text_features.npy
+      - artifacts/text_vectorizer.pkl
+      - artifacts/pca_model.pkl
+      - artifacts/pca_text_model.pkl
+      - artifacts/label_encoder.pkl
+    outs:
+      - artifacts/neural_network_model.h5

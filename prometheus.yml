@@ -1,29 +1,36 @@
 global:
   scrape_interval: 15s
+  evaluation_interval: 15s
 
 scrape_configs:
-  # Model API (déjà chez toi normalement)
-#  - job_name: 'model-api'
-#    static_configs:
-#      - targets: ['model-api:8000']
-
-  # Scrape du script train.py (exporteur direct sur port 8000)
-  - job_name: "ml_training"
+  # --- Monitor all APIs ---
+  - job_name: 'preprocess-api'
     static_configs:
-      - targets: ["train:8000"]   
-      
-  # Pushgateway pour jobs batch (entrainement)
+      - targets: ['preprocess-api:5001']
+    metrics_path: /metrics
+
+  - job_name: 'train-api'
+    static_configs:
+      - targets: ['train-api:5002']
+    metrics_path: /metrics
+
+  - job_name: 'predict-api'
+    static_configs:
+      - targets: ['predict-api:5003']
+    metrics_path: /metrics
+
+  - job_name: 'gate-api'
+    static_configs:
+      - targets: ['gate-api:5000']
+    metrics_path: /metrics
+
+  - job_name: 'mlflow'
+    static_configs:
+      - targets: ['mlflow:5000']
+    metrics_path: /metrics
+
+  # --- Pushgateway for batch jobs ---
   - job_name: 'pushgateway'
     honor_labels: true
     static_configs:
       - targets: ['pushgateway:9091']
-
-
-
-  # Scrape du script train.py (exporteur direct sur port 8000)
-  - job_name: "ml_training"
-    static_configs:
-      - targets: ["train:8000"]   # adapte si ton conteneur train.py est appelé autrement
-
-
-
