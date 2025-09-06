@@ -1,21 +1,13 @@
-# Add patterns of files dvc should ignore, which could improve
-# the performance. Learn more at
-# https://dvc.org/doc/user-guide/dvcignore
-# Create .dvcignore to avoid tracking temporary files
-#cat > .dvcignore << 'EOL'
-# Ignore already processed files
-#*.npy
-#*.pkl
-#*.h5
-models/
-checkpoints/
+﻿# Ignore everything except data and artifacts
+/*
+!/data/
+!/artifacts/
 
-# Ignore temporary files
-tmp/
-temp/
+# Within data, ignore everything except images
+/data/*
+!/data/images/
 
-# Ignore large unnecessary files  
-*.zip
-*.tar
-*.gz
-EOL
+# Within images, keep train and test
+/data/images/*
+!/data/images/image_train/
+!/data/images/image_test/
