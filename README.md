@@ -21,7 +21,7 @@ A complete MLOps platform for multimodal (text + image) classification.
 
 ## Setup
 
-\\\ash
+\\\Bash
 docker-compose up -d
 \\\
 
@@ -29,7 +29,7 @@ docker-compose up -d
 
 Large datasets are managed with DVC and stored on DagsHub S3:
 
-\\\ash
+\\\Bash
 # Pull data
 dvc pull
 
@@ -91,8 +91,10 @@ pytest --cov=preprocess-api --cov=train-api --cov=gate-api --cov=predict-api tes
 
 ### Test Dependencies
 
-Test-specific dependencies are in \equirements-test.txt\ and include:
+Test-specific dependencies are in \
+equirements-test.txt\ and include:
 - pytest
 - pytest-cov
 - requests-mock
 - httpx
+
