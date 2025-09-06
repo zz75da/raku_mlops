@@ -42,13 +42,21 @@ dvc push
 \\\
 rakuten_mlops_services/
 ├── airflow/          # Airflow DAGs and configuration
+
 ├── gate-api/         # Authentication service
+
 ├── preprocess-api/   # Feature extraction
+
 ├── train-api/        # Model training
+
 ├── predict-api/      # Prediction service
+
 ├── monitoring/       # Prometheus & Grafana configs
+
 ├── data/            # Datasets (DVC managed)
+
 ├── artifacts/       # Model artifacts (DVC managed)
+
 └── docker-compose.yml
 \\\
 
@@ -97,5 +105,6 @@ equirements-test.txt\ and include:
 - pytest-cov
 - requests-mock
 - httpx
+
 
 
