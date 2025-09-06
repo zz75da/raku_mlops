@@ -10,15 +10,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libsm6 \
     libxext6 \
     libxrender1 \
-    libgl1-mesa-glx \
+    libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy and install dependencies
-COPY predict-api/requirements.txt .
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY predict-api/app.py .
+COPY app.py .
 
 EXPOSE 5003
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5003"]

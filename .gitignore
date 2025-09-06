@@ -1,20 +1,51 @@
-# venv / builds
-venv/
-.env
-*.egg-info/
-__pycache__/
-*.pyc
-dist/
-build/
+﻿# Data and artifacts
+# These are the large files and folders DVC is managing, which should NOT be in Git.
+/data/
+/artifacts/
+/cache/
+/feature_cache/
 
-# DVC cache & artefacts locaux (la config locale reste non versionnée)
+# DVC files are small pointers and MUST be committed to Git.
+# The '!' character is used to explicitly re-include them.
+!/data/**/*.dvc
+!/artifacts/**/*.dvc
+!/cache/**/*.dvc
+!/feature_cache/**/*.dvc
+
+# DVC's internal directories
 .dvc/tmp/
 .dvc/cache/
 
-# Logs / outputs
-logs/
-**/*.log
+# Airflow
+airflow/logs/
 
-# Data suivies par DVC (DVC ajoutera aussi ses propres entrées)
-data/
-artifacts/
+# Environment
+.env
+.env.local
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/

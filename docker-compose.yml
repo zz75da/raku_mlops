@@ -1,7 +1,5 @@
-version: '3.8'
-
 services:
-  # === Base de données pour Airflow et MLflow ===
+  # === Database for Airflow and MLflow ===
   postgres:
     image: postgres:13
     container_name: postgres
@@ -20,8 +18,10 @@ services:
       timeout: 5s
       retries: 10
     restart: unless-stopped
-    
-  # === MinIO (S3 pour DVC et MLflow) ===
+    networks:
+      - rakuten_mlops_network
+
+  # === MinIO (S3 for DVC and MLflow) ===
   minio:
     image: minio/minio:latest
     container_name: minio
@@ -34,14 +34,16 @@ services:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
     command: server /data --console-address ":9001"
-    restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 10s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
+    networks:
+      - rakuten_mlops_network
 
-  # === Initialisation des buckets MinIO ===
+  # === Initialisation of MinIO buckets ===
   minio-client:
     image: minio/mc:latest
     container_name: minio-client
@@ -57,10 +59,12 @@ services:
       exit 0;
       "
     restart: on-failure
+    networks:
+      - rakuten_mlops_network
 
   # === MLflow Tracking Server ===
   mlflow:
-    build: 
+    build:
       context: .
       dockerfile: mlflow_docker/Dockerfile
     container_name: mlflow
@@ -93,7 +97,9 @@ services:
       timeout: 10s
       retries: 15
     restart: unless-stopped
-    
+    networks:
+      - rakuten_mlops_network
+
   # === Init Airflow (db migrate + admin user) ===
   airflow-init:
     build:
@@ -113,17 +119,26 @@ services:
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:postgres@postgres:5432/airflow
+      AIRFLOW_UID: 50000
+      AIRFLOW_GID: 0
+      AIRFLOW_CONN_PREPROCESS_API: http://preprocess-api:5001
+      AIRFLOW_CONN_TRAIN_API: http://train-api:5002
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./data:/opt/airflow/data
       - ./scripts:/opt/airflow/scripts
       - ./artifacts:/opt/airflow/artifacts
+      - ./params.yaml:/app/params.yaml
     depends_on:
       postgres:
         condition: service_healthy
     restart: "no"
+    networks:
+      - rakuten_mlops_network
 
   # === Airflow (webserver + scheduler) ===
+# === Airflow (webserver + scheduler) ===
+
   airflow:
     build:
       context: .
@@ -136,17 +151,27 @@ services:
       AIRFLOW__CORE__FERNET_KEY: U7845mUa4D7gVdti1P5Fb4Bktl6Or41h8v8hPfcsn3s=
       AIRFLOW__CORE__LOAD_EXAMPLES: "False"
       AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags
+      AIRFLOW__CORE__PLUGINS_FOLDER: /opt/airflow/plugins
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:postgres@postgres:5432/airflow
-      AIRFLOW_UID: 50000
-      AIRFLOW_GID: 0
       MLFLOW_TRACKING_URI: http://mlflow:5000
       PREPROCESS_API_URL: http://preprocess-api:5001
       TRAIN_API_URL: http://train-api:5002
-      # The rest of your environment variables for file paths are now handled by the individual APIs
+      AIRFLOW_CONN_PREPROCESS_API: http://preprocess-api:5001
+      AIRFLOW_CONN_TRAIN_API: http://train-api:5002
+      _PIP_ADDITIONAL_REQUIREMENTS: apache-airflow-providers-http
+      AIRFLOW_CONN_GATE_API: http://gate-api:5000
+      AIRFLOW_CONN_PREDICT_API: http://predict-api:5003
+      # Add the log directory override
+      AIRFLOW__LOGGING__BASE_LOG_FOLDER: /tmp/airflow/logs
+      SECRET_KEY: default_secret
     volumes:
       - ./airflow/dags:/opt/airflow/dags
-      - ./airflow/logs:/opt/airflow/logs
-      # The data, scripts, and artifacts are now managed by the respective microservices
+      # Map to the /tmp directory to avoid Windows permission issues
+      - ./airflow/logs:/tmp/airflow/logs
+      - ./airflow/airflow.cfg:/opt/airflow/airflow.cfg
+      - ./params.yaml:/app/params.yaml
+      - ./data:/opt/airflow/data
+      - ./airflow/plugins:/opt/airflow/plugins
     depends_on:
       postgres:
         condition: service_healthy
@@ -160,8 +185,8 @@ services:
         condition: service_started
     command: >
       bash -c "
-      echo 'Starting Airflow services...';
-      airflow webserver -p 8080 &
+      echo 'Starting Airflow services...'; \
+      airflow webserver -p 8080 & \
       airflow scheduler
       "
     healthcheck:
@@ -170,47 +195,91 @@ services:
       timeout: 10s
       retries: 20
     restart: unless-stopped
-    
-  # === gate-api (New Service) ===
+    networks:
+      - rakuten_mlops_network
+
+
+  # === gate-api ===
   gate-api:
     build:
       context: ./gate-api
     container_name: gate-api
     ports:
-      - "5000:5000" # Expose a different port for the gateway
+      - "5004:5000"
+    environment: 
+      - SECRET_KEY=default_secret 
+    volumes:
+      - ./params.yaml:/app/params.yaml
     restart: unless-stopped
-    
-  # === preprocess-api (New Service) ===
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5000/health || exit 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+    networks:
+      - rakuten_mlops_network
+
+  # === preprocess-api ===
   preprocess-api:
     build:
       context: ./preprocess-api
     container_name: preprocess-api
     ports:
       - "5001:5001"
+    environment:
+      PORT: 5001
+      SECRET_KEY: default_secret
+      DATA_PATH: /app/data
+      FEATURE_CACHE_ENABLED: "true"
     volumes:
       - ./data:/app/data
+      - ./params.yaml:/app/params.yaml
+      - ./cache:/app/data/feature_cache
     restart: unless-stopped
-    
-  # === train-api (New Service) ===
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5001/health || exit 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+    networks:
+      - rakuten_mlops_network
+
+  # === train-api ===
   train-api:
     build:
       context: ./train-api
     container_name: train-api
     ports:
       - "5002:5002"
-    volumes:
-      - ./data:/app/data
     environment:
+      PORT: 5002
+      SECRET_KEY: default_secret
       MLFLOW_TRACKING_URI: http://mlflow:5000
       MLFLOW_S3_ENDPOINT_URL: http://minio:9000
       AWS_ACCESS_KEY_ID: minio
       AWS_SECRET_ACCESS_KEY: minio123
+      TRAIN_CSV_X_PATH: /app/data/X_train_update.csv
+      TRAIN_CSV_Y_PATH: /app/data/Y_train_CVw08PX.csv
+      IMAGE_ROOT_TRAIN: /app/data/images/image_train
+    volumes:
+      - ./data:/app/data
+      - ./artifacts:/app/artifacts
+      - ./params.yaml:/app/params.yaml
     depends_on:
       mlflow:
         condition: service_healthy
+      preprocess-api:
+        condition: service_started
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5002/health || exit 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+    networks:
+      - rakuten_mlops_network
 
-  # === predict-api (New Service) ===
+  # === predict-api ===
   predict-api:
     build:
       context: ./predict-api
@@ -218,31 +287,59 @@ services:
     ports:
       - "5003:5003"
     environment:
+      PORT: 5003
+      SECRET_KEY: default_secret
       MLFLOW_TRACKING_URI: http://mlflow:5000
       MLFLOW_S3_ENDPOINT_URL: http://minio:9000
       AWS_ACCESS_KEY_ID: minio
       AWS_SECRET_ACCESS_KEY: minio123
+      MLFLOW_MODEL_NAME: neural_network_model
+      MLFLOW_MODEL_STAGE: Production
+    volumes:
+      - ./params.yaml:/app/params.yaml
+      - ./artifacts:/app/artifacts
     depends_on:
       mlflow:
         condition: service_healthy
-    restart: unless-stopped
-    
-  # === Prometheus ===
-  prometheus:
-    image: prom/prometheus:latest
-    container_name: prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-    depends_on:
-      - predict-api
+      train-api:
+        condition: service_started
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:9090/ || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:5003/health || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 10
     restart: unless-stopped
+    networks:
+      - rakuten_mlops_network
+
+  # === Prometheus ===
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+      - ./monitoring/alert-rules.yml:/etc/prometheus/alert-rules.yml
+    command: >
+      --config.file=/etc/prometheus/prometheus.yml
+      --storage.tsdb.path=/prometheus
+      --web.console.libraries=/etc/prometheus/console_libraries
+      --web.console.templates=/etc/prometheus/consoles
+      --web.enable-lifecycle'
+      --web.external-url=http://localhost:9090'
+
+    depends_on:
+      - predict-api
+    healthcheck:
+      test: ["CMD-SHELL", "wget --spider -q http://localhost:9090/-/healthy || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - rakuten_mlops_network
 
   # === Grafana ===
   grafana:
@@ -264,7 +361,8 @@ services:
       timeout: 5s
       retries: 10
     restart: unless-stopped
-
+    networks:
+      - rakuten_mlops_network
 
   # === Streamlit ===
   streamlit:
@@ -275,22 +373,26 @@ services:
     ports:
       - "8501:8501"
     environment:
-      - PREDICT_API_URL=http://predict-api:5003 # Updated URL
+      - PREDICT_API_URL=http://predict-api:5003
+      - GATE_API_URL=http://gate-api:5000
+      - PREPROCESS_API_URL=http://preprocess-api:5001
       - ARTIFACTS_PATH=/app/artifacts
-      - IMAGE_ROOT_TRAIN: /app/images/image_train
-      - IMAGE_ROOT_TEST: /app/images/image_test
+      - IMAGE_ROOT_TRAIN=/app/images/image_train
+      - IMAGE_ROOT_TEST=/app/images/image_test
     volumes:
       - ./streamlit:/app
-      - ./artifacts:/app/artifacts:ro
-      - ./images:/app/images:ro
     depends_on:
       - predict-api
+      - gate-api
+      - preprocess-api
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8501/ || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:8501/_stcore/health || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 10
     restart: unless-stopped
+    networks:
+      - rakuten_mlops_network
 
   # === Pushgateway (Prometheus metrics) ===
   pushgateway:
@@ -299,12 +401,31 @@ services:
     ports:
       - "9091:9091"
     restart: unless-stopped
+    networks:
+      - rakuten_mlops_network
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: alertmanager
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./monitoring/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+      - ./monitoring/alertmanager-templates:/etc/alertmanager/templates
+    command:
+        - '--config.file=/etc/alertmanager/alertmanager.yml'
+        - '--storage.path=/alertmanager'
+    networks:
+      - rakuten_mlops_network
+    restart: unless-stopped
+
 
 networks:
-  default:
+  rakuten_mlops_network:
     driver: bridge
 
 volumes:
   postgres_data:
   minio_data:
   grafana-storage:
+  prometheus_data:

@@ -6,3 +6,11 @@ spacy==3.7.5
 tqdm==4.66.4
 tensorflow==2.16.1
 Pillow==10.4.0
+pyjwt==2.8.0
+pydantic==2.5.0
+python-multipart==0.0.6
+scikit-learn==1.2.2
+requests==2.32.3
+python-jose[cryptography]==3.3.0
+
+
