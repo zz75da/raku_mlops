@@ -2,6 +2,11 @@
 
 A complete MLOps platform for multimodal (text + image) classification.
 
+# Rakuten MLOps Services
+
+[![CI with DVC + Tests](https://github.com/zz75da/raku_mlops/actions/workflows/dvc-ci.yml/badge.svg?branch=main)](https://github.com/zz75da/raku_mlops/actions/workflows/dvc-ci.yml)
+
+
 ## Architecture
 
 - **Orchestration**: Apache Airflow
@@ -106,6 +111,7 @@ equirements-test.txt\ and include:
 - pytest-cov
 - requests-mock
 - httpx
+
 
 
 
