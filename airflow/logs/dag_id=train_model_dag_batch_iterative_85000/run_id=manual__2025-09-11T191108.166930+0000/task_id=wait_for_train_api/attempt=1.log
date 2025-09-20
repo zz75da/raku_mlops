@@ -1,0 +1,19 @@
+[2025-09-11T19:11:31.859+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-11T19:11:31.952+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-11T19:11:08.166930+00:00 [queued]>
+[2025-09-11T19:11:32.010+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-11T19:11:08.166930+00:00 [queued]>
+[2025-09-11T19:11:32.012+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-11T19:11:32.131+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-11 19:11:08.166930+00:00
+[2025-09-11T19:11:32.210+0000] {standard_task_runner.py:63} INFO - Started process 12774 to run task
+[2025-09-11T19:11:32.333+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-11T19:11:08.166930+00:00', '--job-id', '517', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmp1ujwnfgw']
+[2025-09-11T19:11:32.338+0000] {standard_task_runner.py:91} INFO - Job 517: Subtask wait_for_train_api
+[2025-09-11T19:11:33.679+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-11T19:11:08.166930+00:00 [running]> on host fa36f12452e5
+[2025-09-11T19:11:35.250+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-11T19:11:08.166930+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-11T19:11:08.166930+00:00'
+[2025-09-11T19:11:35.273+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-11T19:11:35.712+0000] {http.py:130} INFO - Poking: /health
+[2025-09-11T19:11:35.731+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-11T19:11:36.038+0000] {base.py:294} INFO - Success criteria met. Exiting.
+[2025-09-11T19:11:36.039+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-11T19:11:36.119+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=train_model_dag_batch_iterative_85000, task_id=wait_for_train_api, run_id=manual__2025-09-11T19:11:08.166930+00:00, execution_date=20250911T191108, start_date=20250911T191131, end_date=20250911T191136
+[2025-09-11T19:11:36.250+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-11T19:11:36.381+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-11T19:11:36.386+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

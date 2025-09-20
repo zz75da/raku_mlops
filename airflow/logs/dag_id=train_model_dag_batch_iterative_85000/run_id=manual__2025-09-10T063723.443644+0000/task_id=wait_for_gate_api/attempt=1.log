@@ -1,0 +1,19 @@
+[2025-09-10T06:37:30.650+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T06:37:30.725+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_gate_api manual__2025-09-10T06:37:23.443644+00:00 [queued]>
+[2025-09-10T06:37:30.761+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_gate_api manual__2025-09-10T06:37:23.443644+00:00 [queued]>
+[2025-09-10T06:37:30.762+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T06:37:30.809+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_gate_api> on 2025-09-10 06:37:23.443644+00:00
+[2025-09-10T06:37:30.832+0000] {standard_task_runner.py:63} INFO - Started process 400 to run task
+[2025-09-10T06:37:30.888+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_gate_api', 'manual__2025-09-10T06:37:23.443644+00:00', '--job-id', '416', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmp16j8o259']
+[2025-09-10T06:37:30.906+0000] {standard_task_runner.py:91} INFO - Job 416: Subtask wait_for_gate_api
+[2025-09-10T06:37:30.814+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_gate_api manual__2025-09-10T06:37:23.443644+00:00 [running]> on host 783f489a94dd
+[2025-09-10T06:37:29.766+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_gate_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T06:37:23.443644+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T06:37:23.443644+00:00'
+[2025-09-10T06:37:29.770+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T06:37:29.898+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T06:37:29.910+0000] {base.py:84} INFO - Using connection ID 'gate_api' for task execution.
+[2025-09-10T06:37:30.195+0000] {base.py:294} INFO - Success criteria met. Exiting.
+[2025-09-10T06:37:30.198+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T06:37:30.245+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=train_model_dag_batch_iterative_85000, task_id=wait_for_gate_api, run_id=manual__2025-09-10T06:37:23.443644+00:00, execution_date=20250910T063723, start_date=20250910T063730, end_date=20250910T063730
+[2025-09-10T06:37:30.322+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T06:37:30.457+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T06:37:30.463+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

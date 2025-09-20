@@ -1,0 +1,17 @@
+[2025-09-19T15:38:28.045+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-19T15:38:28.088+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.get_auth_token manual__2025-09-19T15:38:11.591947+00:00 [queued]>
+[2025-09-19T15:38:28.109+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.get_auth_token manual__2025-09-19T15:38:11.591947+00:00 [queued]>
+[2025-09-19T15:38:28.110+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-09-19T15:38:28.134+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): get_auth_token> on 2025-09-19 15:38:11.591947+00:00
+[2025-09-19T15:38:28.148+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'rakuten_multimodal_pipeline_full_tracking_02', 'get_auth_token', 'manual__2025-09-19T15:38:11.591947+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/train_dag_42.py', '--cfg-path', '/tmp/tmps8awwfot']
+[2025-09-19T15:38:28.152+0000] {standard_task_runner.py:105} INFO - Job 45: Subtask get_auth_token
+[2025-09-19T15:38:28.153+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=397) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-09-19T15:38:28.155+0000] {standard_task_runner.py:72} INFO - Started process 398 to run task
+[2025-09-19T15:38:28.243+0000] {task_command.py:467} INFO - Running <TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.get_auth_token manual__2025-09-19T15:38:11.591947+00:00 [running]> on host 2596335dfb3c
+[2025-09-19T15:38:28.373+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='rakuten_multimodal_pipeline_full_tracking_02' AIRFLOW_CTX_TASK_ID='get_auth_token' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T15:38:11.591947+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-19T15:38:11.591947+00:00'
+[2025-09-19T15:38:28.374+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-09-19T15:38:28.496+0000] {python.py:240} INFO - Done. Returned value was: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NTgzMDcxMDgsImlhdCI6MTc1ODI5NjMwOH0.XymTcIfhDkMPC4JfiMIeugw1GseXiKIiFnYA460icl0
+[2025-09-19T15:38:28.524+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-09-19T15:38:28.525+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=rakuten_multimodal_pipeline_full_tracking_02, task_id=get_auth_token, run_id=manual__2025-09-19T15:38:11.591947+00:00, execution_date=20250919T153811, start_date=20250919T153828, end_date=20250919T153828
+[2025-09-19T15:38:28.653+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-19T15:38:28.668+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,34 @@
+[2025-09-11T18:11:51.762+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-11T18:11:51.795+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.check_training_data manual__2025-09-11T18:11:40.864265+00:00 [queued]>
+[2025-09-11T18:11:51.808+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.check_training_data manual__2025-09-11T18:11:40.864265+00:00 [queued]>
+[2025-09-11T18:11:51.810+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-11T18:11:51.835+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): check_training_data> on 2025-09-11 18:11:40.864265+00:00
+[2025-09-11T18:11:51.850+0000] {standard_task_runner.py:63} INFO - Started process 10974 to run task
+[2025-09-11T18:11:51.862+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'check_training_data', 'manual__2025-09-11T18:11:40.864265+00:00', '--job-id', '507', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpimsaq6s7']
+[2025-09-11T18:11:51.866+0000] {standard_task_runner.py:91} INFO - Job 507: Subtask check_training_data
+[2025-09-11T18:11:52.609+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.check_training_data manual__2025-09-11T18:11:40.864265+00:00 [running]> on host fa36f12452e5
+[2025-09-11T18:11:53.060+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='check_training_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-11T18:11:40.864265+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-11T18:11:40.864265+00:00'
+[2025-09-11T18:11:53.066+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-11T18:11:53.113+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-09-11T18:11:53.120+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "echo '=== Checking training data availability ===' && ls -lh /opt/airflow/data/ && [ -f /opt/airflow/data/X_train_update.csv ] || (echo 'Missing X_train_update.csv' && exit 1) && [ -f /opt/airflow/data/Y_train_CVw08PX.csv ] || (echo 'Missing Y_train_CVw08PX.csv' && exit 1) && [ -d /opt/airflow/data/images/image_train/ ] || (echo 'Missing training images' && exit 1) && echo '✓ All training files are present'"]
+[2025-09-11T18:11:53.145+0000] {subprocess.py:86} INFO - Output:
+[2025-09-11T18:11:53.170+0000] {subprocess.py:93} INFO - === Checking training data availability ===
+[2025-09-11T18:11:53.224+0000] {subprocess.py:93} INFO - total 622M
+[2025-09-11T18:11:53.225+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root 8.5M Oct  9  2024 X_test_update.csv
+[2025-09-11T18:11:53.226+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root  52M Aug 29 07:27 X_train_update.csv
+[2025-09-11T18:11:53.227+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root 886K Oct  9  2024 Y_train_CVw08PX.csv
+[2025-09-11T18:11:53.228+0000] {subprocess.py:93} INFO - drwxr-xr-x 1 root root  512 Sep  7 13:04 artifacts
+[2025-09-11T18:11:53.229+0000] {subprocess.py:93} INFO - drwxr-xr-x 1 root root  512 Sep  5 23:36 feature_cache
+[2025-09-11T18:11:53.229+0000] {subprocess.py:93} INFO - drwxr-xr-x 1 root root  512 Sep  7 08:35 features
+[2025-09-11T18:11:53.230+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root 163M Sep 10 23:41 image_features.npy
+[2025-09-11T18:11:53.231+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root  108 Sep 10 23:41 image_features.npy.dvc
+[2025-09-11T18:11:53.232+0000] {subprocess.py:93} INFO - drwxrwxrwx 1 root root  512 Sep  6 18:41 images
+[2025-09-11T18:11:53.232+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root 398M Sep 10 23:41 text_features.npy
+[2025-09-11T18:11:53.233+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root  107 Sep 10 23:41 text_features.npy.dvc
+[2025-09-11T18:11:53.234+0000] {subprocess.py:93} INFO - ✓ All training files are present
+[2025-09-11T18:11:53.236+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-09-11T18:11:53.238+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-11T18:11:53.355+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=train_model_dag_batch_iterative_85000, task_id=check_training_data, run_id=manual__2025-09-11T18:11:40.864265+00:00, execution_date=20250911T181140, start_date=20250911T181151, end_date=20250911T181153
+[2025-09-11T18:11:53.434+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-11T18:11:53.565+0000] {taskinstance.py:3503} INFO - 4 downstream tasks scheduled from follow-on schedule check
+[2025-09-11T18:11:53.572+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,31 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # --- Monitor all APIs ---
+  - job_name: 'train-api'
+    static_configs:
+      - targets: ['train-api:5002']
+    metrics_path: /metrics
+
+  - job_name: 'predict-api'
+    static_configs:
+      - targets: ['predict-api:5003']
+    metrics_path: /metrics
+
+  - job_name: 'gate-api'
+    static_configs:
+      - targets: ['gate-api:5000']
+    metrics_path: /metrics
+
+  - job_name: 'mlflow'
+    static_configs:
+      - targets: ['mlflow:5000']
+    metrics_path: /metrics
+
+  # --- Pushgateway for batch jobs ---
+  - job_name: 'pushgateway'
+    honor_labels: true
+    static_configs:
+      - targets: ['pushgateway:9091']

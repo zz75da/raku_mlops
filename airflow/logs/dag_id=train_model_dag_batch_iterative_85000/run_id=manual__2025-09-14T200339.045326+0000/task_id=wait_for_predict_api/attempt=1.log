@@ -1,0 +1,20 @@
+[2025-09-14T20:04:08.594+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-14T20:04:08.642+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_predict_api manual__2025-09-14T20:03:39.045326+00:00 [queued]>
+[2025-09-14T20:04:08.667+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_predict_api manual__2025-09-14T20:03:39.045326+00:00 [queued]>
+[2025-09-14T20:04:08.671+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-09-14T20:04:08.719+0000] {taskinstance.py:2888} INFO - Executing <Task(HttpSensor): wait_for_predict_api> on 2025-09-14 20:03:39.045326+00:00
+[2025-09-14T20:04:08.776+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_predict_api', 'manual__2025-09-14T20:03:39.045326+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmprdl72c__']
+[2025-09-14T20:04:08.798+0000] {standard_task_runner.py:105} INFO - Job 21: Subtask wait_for_predict_api
+[2025-09-14T20:04:08.847+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=8123) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-09-14T20:04:08.850+0000] {standard_task_runner.py:72} INFO - Started process 8135 to run task
+[2025-09-14T20:04:09.254+0000] {task_command.py:467} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_predict_api manual__2025-09-14T20:03:39.045326+00:00 [running]> on host 28a36d2554cb
+[2025-09-14T20:04:10.141+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_predict_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-14T20:03:39.045326+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-14T20:03:39.045326+00:00'
+[2025-09-14T20:04:10.164+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-09-14T20:04:10.331+0000] {baseoperator.py:405} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2025-09-14T20:04:10.358+0000] {http.py:137} INFO - Poking: /health
+[2025-09-14T20:04:10.394+0000] {base.py:84} INFO - Retrieving connection 'predict_api'
+[2025-09-14T20:04:10.981+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2025-09-14T20:04:11.018+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-09-14T20:04:11.019+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=train_model_dag_batch_iterative_85000, task_id=wait_for_predict_api, run_id=manual__2025-09-14T20:03:39.045326+00:00, execution_date=20250914T200339, start_date=20250914T200408, end_date=20250914T200411
+[2025-09-14T20:04:11.081+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-14T20:04:11.103+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

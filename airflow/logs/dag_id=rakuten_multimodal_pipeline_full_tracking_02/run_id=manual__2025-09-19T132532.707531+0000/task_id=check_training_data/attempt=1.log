@@ -1,0 +1,36 @@
+[2025-09-19T13:25:42.453+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-19T13:25:42.508+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.check_training_data manual__2025-09-19T13:25:32.707531+00:00 [queued]>
+[2025-09-19T13:25:42.525+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.check_training_data manual__2025-09-19T13:25:32.707531+00:00 [queued]>
+[2025-09-19T13:25:42.527+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-09-19T13:25:42.561+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): check_training_data> on 2025-09-19 13:25:32.707531+00:00
+[2025-09-19T13:25:42.647+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1325) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-09-19T13:25:42.624+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'rakuten_multimodal_pipeline_full_tracking_02', 'check_training_data', 'manual__2025-09-19T13:25:32.707531+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/train_dag_42.py', '--cfg-path', '/tmp/tmpyeg8yyhl']
+[2025-09-19T13:25:42.704+0000] {standard_task_runner.py:105} INFO - Job 28: Subtask check_training_data
+[2025-09-19T13:25:42.706+0000] {standard_task_runner.py:72} INFO - Started process 1330 to run task
+[2025-09-19T13:25:43.452+0000] {task_command.py:467} INFO - Running <TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.check_training_data manual__2025-09-19T13:25:32.707531+00:00 [running]> on host fbc9f2e41b10
+[2025-09-19T13:25:43.858+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='rakuten_multimodal_pipeline_full_tracking_02' AIRFLOW_CTX_TASK_ID='check_training_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T13:25:32.707531+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-19T13:25:32.707531+00:00'
+[2025-09-19T13:25:43.866+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-09-19T13:25:43.930+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-09-19T13:25:43.938+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "echo '=== Checking data availability ===' && ls -lh /opt/airflow/data/ && [ -d /opt/airflow/data/images/image_train ] || (echo 'Missing image_train dir' && exit 1) && [ -d /opt/airflow/data/images/image_sample ] || (echo 'Missing image_sample dir' && exit 1) && echo '✓ All expected data present'"]
+[2025-09-19T13:25:43.980+0000] {subprocess.py:86} INFO - Output:
+[2025-09-19T13:25:44.053+0000] {subprocess.py:93} INFO - === Checking data availability ===
+[2025-09-19T13:25:44.112+0000] {subprocess.py:93} INFO - total 622M
+[2025-09-19T13:25:44.113+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root 8.5M Oct  9  2024 X_test_update.csv
+[2025-09-19T13:25:44.114+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root  52M Aug 29 07:27 X_train_update.csv
+[2025-09-19T13:25:44.115+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root 886K Oct  9  2024 Y_train_CVw08PX.csv
+[2025-09-19T13:25:44.116+0000] {subprocess.py:93} INFO - drwxrwxrwx 1 root root  512 Sep  7 13:04 artifacts
+[2025-09-19T13:25:44.117+0000] {subprocess.py:93} INFO - drwxrwxrwx 1 root root  512 Sep  5 23:36 feature_cache
+[2025-09-19T13:25:44.117+0000] {subprocess.py:93} INFO - drwxrwxrwx 1 root root  512 Sep  7 08:35 features
+[2025-09-19T13:25:44.118+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root 163M Sep 10 23:41 image_features.npy
+[2025-09-19T13:25:44.119+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root  108 Sep 10 23:41 image_features.npy.dvc
+[2025-09-19T13:25:44.120+0000] {subprocess.py:93} INFO - drwxrwxrwx 1 root root  512 Sep 15 09:20 image_sample
+[2025-09-19T13:25:44.121+0000] {subprocess.py:93} INFO - drwxrwxrwx 1 root root  512 Sep 17 17:57 images
+[2025-09-19T13:25:44.121+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root 398M Sep 10 23:41 text_features.npy
+[2025-09-19T13:25:44.122+0000] {subprocess.py:93} INFO - -rwxrwxrwx 1 root root  107 Sep 10 23:41 text_features.npy.dvc
+[2025-09-19T13:25:44.123+0000] {subprocess.py:93} INFO - ✓ All expected data present
+[2025-09-19T13:25:44.124+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-09-19T13:25:44.485+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-09-19T13:25:44.486+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=rakuten_multimodal_pipeline_full_tracking_02, task_id=check_training_data, run_id=manual__2025-09-19T13:25:32.707531+00:00, execution_date=20250919T132532, start_date=20250919T132542, end_date=20250919T132544
+[2025-09-19T13:25:44.553+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-19T13:25:44.641+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-19T13:25:44.646+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

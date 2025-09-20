@@ -1,0 +1,32 @@
+[2025-09-11T19:27:23.012+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-11T19:27:23.046+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.train_model_iterative manual__2025-09-11T19:24:06.977627+00:00 [queued]>
+[2025-09-11T19:27:23.067+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.train_model_iterative manual__2025-09-11T19:24:06.977627+00:00 [queued]>
+[2025-09-11T19:27:23.069+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-09-11T19:27:23.097+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): train_model_iterative> on 2025-09-11 19:24:06.977627+00:00
+[2025-09-11T19:27:23.110+0000] {standard_task_runner.py:63} INFO - Started process 13374 to run task
+[2025-09-11T19:27:23.117+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'train_model_iterative', 'manual__2025-09-11T19:24:06.977627+00:00', '--job-id', '533', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpqyvn7x7a']
+[2025-09-11T19:27:23.121+0000] {standard_task_runner.py:91} INFO - Job 533: Subtask train_model_iterative
+[2025-09-11T19:27:23.257+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.train_model_iterative manual__2025-09-11T19:24:06.977627+00:00 [running]> on host fa36f12452e5
+[2025-09-11T19:27:23.445+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='train_model_iterative' AIRFLOW_CTX_EXECUTION_DATE='2025-09-11T19:24:06.977627+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-11T19:24:06.977627+00:00'
+[2025-09-11T19:27:23.447+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-11T19:27:38.846+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-11T19:27:38.847+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/train_dag.py", line 99, in send_batches_to_train_api
+    raise Exception(f"Batch {idx} failed: {response.text}")
+Exception: Batch 1 failed: {"detail":"Training failed: n_components=300 invalid for n_features=1, need more rows than columns for IncrementalPCA processing"}
+[2025-09-11T19:27:38.881+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=train_model_dag_batch_iterative_85000, task_id=train_model_iterative, run_id=manual__2025-09-11T19:24:06.977627+00:00, execution_date=20250911T192406, start_date=20250911T192723, end_date=20250911T192738
+[2025-09-11T19:27:38.942+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 533 for task train_model_iterative (Batch 1 failed: {"detail":"Training failed: n_components=300 invalid for n_features=1, need more rows than columns for IncrementalPCA processing"}; 13374)
+[2025-09-11T19:27:39.009+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-09-11T19:27:39.085+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-11T19:27:39.106+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

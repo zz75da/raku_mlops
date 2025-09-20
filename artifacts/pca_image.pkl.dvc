@@ -1,0 +1,5 @@
+outs:
+- md5: e91afe5a68834ba670a72cae6ed0866b
+  size: 4955898
+  hash: md5
+  path: pca_image.pkl

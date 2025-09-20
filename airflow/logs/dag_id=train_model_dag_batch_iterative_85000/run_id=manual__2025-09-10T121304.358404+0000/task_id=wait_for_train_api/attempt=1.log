@@ -1,0 +1,392 @@
+[2025-09-10T12:13:14.063+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:13:14.164+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:13:14.224+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:13:14.225+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:13:14.300+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:13:14.366+0000] {standard_task_runner.py:63} INFO - Started process 559 to run task
+[2025-09-10T12:13:14.502+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '444', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpcf8pd34n']
+[2025-09-10T12:13:14.537+0000] {standard_task_runner.py:91} INFO - Job 444: Subtask wait_for_train_api
+[2025-09-10T12:13:15.054+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:13:15.514+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:13:15.520+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:13:15.632+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:13:15.639+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:13:15.651+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:13:15.653+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:13:15.655+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:13:15.778+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:13:15.801+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:13:15.892+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:13:15.897+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:13:32.348+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:13:32.380+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:13:32.398+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:13:32.399+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:13:32.422+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:13:32.430+0000] {standard_task_runner.py:63} INFO - Started process 576 to run task
+[2025-09-10T12:13:32.436+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '446', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpypovfktd']
+[2025-09-10T12:13:32.440+0000] {standard_task_runner.py:91} INFO - Job 446: Subtask wait_for_train_api
+[2025-09-10T12:13:32.513+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:13:32.662+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:13:32.667+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:13:32.733+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:13:32.746+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:13:32.762+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:13:32.764+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:13:32.766+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:13:32.822+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:13:32.857+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:13:32.957+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:13:32.962+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:13:49.681+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:13:49.706+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:13:49.719+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:13:49.720+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:13:49.741+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:13:49.747+0000] {standard_task_runner.py:63} INFO - Started process 584 to run task
+[2025-09-10T12:13:49.754+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '447', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpho4elyox']
+[2025-09-10T12:13:49.757+0000] {standard_task_runner.py:91} INFO - Job 447: Subtask wait_for_train_api
+[2025-09-10T12:13:49.832+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:13:49.997+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:13:50.005+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:13:50.054+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:13:50.058+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:13:50.066+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:13:50.067+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:13:50.069+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:13:50.110+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:13:50.128+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:13:50.186+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:13:50.190+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:14:06.524+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:14:06.573+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:14:06.602+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:14:06.603+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:14:06.641+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:14:06.657+0000] {standard_task_runner.py:63} INFO - Started process 600 to run task
+[2025-09-10T12:14:06.664+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '448', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpbju95ayl']
+[2025-09-10T12:14:06.670+0000] {standard_task_runner.py:91} INFO - Job 448: Subtask wait_for_train_api
+[2025-09-10T12:14:06.766+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:14:06.909+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:14:06.911+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:14:06.941+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:14:06.945+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:14:06.960+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:14:06.961+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:14:06.962+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:14:06.993+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:14:07.040+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:14:07.101+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:14:07.105+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:14:23.273+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:14:23.313+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:14:23.336+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:14:23.337+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:14:23.375+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:14:23.384+0000] {standard_task_runner.py:63} INFO - Started process 608 to run task
+[2025-09-10T12:14:23.390+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '449', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpnycqiof8']
+[2025-09-10T12:14:23.393+0000] {standard_task_runner.py:91} INFO - Job 449: Subtask wait_for_train_api
+[2025-09-10T12:14:23.494+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:14:23.731+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:14:23.734+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:14:23.804+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:14:23.809+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:14:23.823+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:14:23.825+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:14:23.827+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:14:23.882+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:14:23.928+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:14:24.015+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:14:24.020+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:14:41.260+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:14:41.295+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:14:41.314+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:14:41.314+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:14:41.342+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:14:41.350+0000] {standard_task_runner.py:63} INFO - Started process 629 to run task
+[2025-09-10T12:14:41.356+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '450', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpi_x4o_nd']
+[2025-09-10T12:14:41.360+0000] {standard_task_runner.py:91} INFO - Job 450: Subtask wait_for_train_api
+[2025-09-10T12:14:41.477+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:14:41.653+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:14:41.656+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:14:41.693+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:14:41.697+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:14:41.706+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:14:41.707+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:14:41.709+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:14:41.745+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:14:41.774+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:14:41.846+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:14:41.852+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:14:58.282+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:14:58.311+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:14:58.325+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:14:58.326+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:14:58.349+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:14:58.358+0000] {standard_task_runner.py:63} INFO - Started process 639 to run task
+[2025-09-10T12:14:58.364+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '451', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpykbd2c9b']
+[2025-09-10T12:14:58.371+0000] {standard_task_runner.py:91} INFO - Job 451: Subtask wait_for_train_api
+[2025-09-10T12:14:58.483+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:14:58.669+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:14:58.672+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:14:58.725+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:14:58.730+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:14:58.746+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:14:58.748+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:14:58.749+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:14:58.799+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:14:58.830+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:14:58.902+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:14:58.907+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:15:15.662+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:15:15.691+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:15:15.704+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:15:15.705+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:15:15.726+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:15:15.737+0000] {standard_task_runner.py:63} INFO - Started process 653 to run task
+[2025-09-10T12:15:15.743+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '452', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpimfaiekz']
+[2025-09-10T12:15:15.748+0000] {standard_task_runner.py:91} INFO - Job 452: Subtask wait_for_train_api
+[2025-09-10T12:15:15.866+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:15:15.995+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:15:15.997+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:15:16.024+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:15:16.027+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:15:16.035+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:15:16.036+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:15:16.037+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:15:16.064+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:15:16.079+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:15:16.132+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:15:16.137+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:15:32.959+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:15:33.008+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:15:33.036+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:15:33.038+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:15:33.076+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:15:33.091+0000] {standard_task_runner.py:63} INFO - Started process 663 to run task
+[2025-09-10T12:15:33.097+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '453', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmp129l338w']
+[2025-09-10T12:15:33.106+0000] {standard_task_runner.py:91} INFO - Job 453: Subtask wait_for_train_api
+[2025-09-10T12:15:33.232+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:15:33.404+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:15:33.407+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:15:33.445+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:15:33.450+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:15:33.461+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:15:33.462+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:15:33.463+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:15:33.513+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:15:33.555+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:15:33.645+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:15:33.650+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:15:49.958+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:15:49.984+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:15:49.998+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:15:49.999+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:15:50.022+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:15:50.031+0000] {standard_task_runner.py:63} INFO - Started process 677 to run task
+[2025-09-10T12:15:50.042+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '454', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmph6n084fq']
+[2025-09-10T12:15:50.051+0000] {standard_task_runner.py:91} INFO - Job 454: Subtask wait_for_train_api
+[2025-09-10T12:15:50.136+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:15:50.284+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:15:50.288+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:15:50.324+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:15:50.329+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:15:50.339+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:15:50.340+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:15:50.342+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:15:50.374+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:15:50.420+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:15:50.507+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:15:50.511+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:16:06.524+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:16:06.552+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:16:06.564+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:16:06.565+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:16:06.586+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:16:06.595+0000] {standard_task_runner.py:63} INFO - Started process 688 to run task
+[2025-09-10T12:16:06.601+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '455', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpo8i4_6zd']
+[2025-09-10T12:16:06.605+0000] {standard_task_runner.py:91} INFO - Job 455: Subtask wait_for_train_api
+[2025-09-10T12:16:06.696+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:16:06.841+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:16:06.843+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:16:06.878+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:16:06.880+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:16:06.890+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:16:06.891+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:16:06.892+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:16:06.928+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:16:06.977+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:16:07.053+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:16:07.058+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:16:24.120+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:16:24.152+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:16:24.170+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:16:24.171+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:16:24.200+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:16:24.211+0000] {standard_task_runner.py:63} INFO - Started process 709 to run task
+[2025-09-10T12:16:24.220+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '456', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmp7jb8_cuz']
+[2025-09-10T12:16:24.225+0000] {standard_task_runner.py:91} INFO - Job 456: Subtask wait_for_train_api
+[2025-09-10T12:16:24.328+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:16:24.490+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:16:24.492+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:16:24.530+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:16:24.533+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:16:24.546+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:16:24.547+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:16:24.548+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:16:24.583+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:16:24.633+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:16:24.707+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:16:24.712+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:16:41.460+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:16:41.562+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:16:41.594+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:16:41.597+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:16:41.655+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:16:41.672+0000] {standard_task_runner.py:63} INFO - Started process 716 to run task
+[2025-09-10T12:16:41.682+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '457', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmprtd57kmb']
+[2025-09-10T12:16:41.692+0000] {standard_task_runner.py:91} INFO - Job 457: Subtask wait_for_train_api
+[2025-09-10T12:16:42.097+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:16:42.405+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:16:42.411+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:16:42.480+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:16:42.496+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:16:42.514+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:16:42.516+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:16:42.519+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:16:42.573+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:16:42.626+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:16:42.704+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:16:42.709+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:16:59.626+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:16:59.663+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:16:59.679+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:16:59.680+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:16:59.703+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:16:59.717+0000] {standard_task_runner.py:63} INFO - Started process 733 to run task
+[2025-09-10T12:16:59.722+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '458', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmp54iglacs']
+[2025-09-10T12:16:59.727+0000] {standard_task_runner.py:91} INFO - Job 458: Subtask wait_for_train_api
+[2025-09-10T12:16:59.823+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:17:00.023+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:17:00.025+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:17:00.070+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:17:00.081+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:17:00.093+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:17:00.094+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:17:00.096+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:17:00.141+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:17:00.179+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:17:00.260+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:17:00.269+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:17:15.614+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:17:15.654+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:17:15.680+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:17:15.680+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:17:15.708+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:17:15.720+0000] {standard_task_runner.py:63} INFO - Started process 747 to run task
+[2025-09-10T12:17:15.726+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '459', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpdeqti3w8']
+[2025-09-10T12:17:15.731+0000] {standard_task_runner.py:91} INFO - Job 459: Subtask wait_for_train_api
+[2025-09-10T12:17:15.830+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:17:16.009+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:17:16.012+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:17:16.052+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:17:16.056+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:17:16.074+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:17:16.075+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:17:16.076+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:17:16.118+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:17:16.141+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:17:16.230+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:17:16.235+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:17:33.863+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:17:33.911+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:17:33.933+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:17:33.934+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:17:33.966+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:17:33.974+0000] {standard_task_runner.py:63} INFO - Started process 758 to run task
+[2025-09-10T12:17:33.979+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '460', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpu28xtida']
+[2025-09-10T12:17:33.984+0000] {standard_task_runner.py:91} INFO - Job 460: Subtask wait_for_train_api
+[2025-09-10T12:17:34.081+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:17:34.320+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:17:34.323+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:17:34.388+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:17:34.391+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:17:34.399+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:17:34.400+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:17:34.401+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:17:34.458+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:17:34.479+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:17:34.549+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:17:34.554+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:17:51.001+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:17:51.032+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:17:51.049+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:17:51.050+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:17:51.073+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:17:51.081+0000] {standard_task_runner.py:63} INFO - Started process 779 to run task
+[2025-09-10T12:17:51.087+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '461', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmprsg9jkim']
+[2025-09-10T12:17:51.090+0000] {standard_task_runner.py:91} INFO - Job 461: Subtask wait_for_train_api
+[2025-09-10T12:17:51.172+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:17:51.313+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:17:51.315+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:17:51.347+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:17:51.350+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:17:51.358+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:17:51.359+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:17:51.360+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:17:51.401+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:17:51.423+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:17:51.503+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:17:51.508+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:18:08.137+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:18:08.165+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:18:08.181+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:18:08.181+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:18:08.204+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:18:08.212+0000] {standard_task_runner.py:63} INFO - Started process 782 to run task
+[2025-09-10T12:18:08.218+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '462', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpcfezkybl']
+[2025-09-10T12:18:08.223+0000] {standard_task_runner.py:91} INFO - Job 462: Subtask wait_for_train_api
+[2025-09-10T12:18:08.321+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:18:08.479+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:18:08.481+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:18:08.510+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:18:08.513+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:18:08.523+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:18:08.523+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:18:08.524+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:18:08.556+0000] {taskinstance.py:2865} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-09-10T12:18:08.595+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-10T12:18:08.656+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:18:08.660+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-09-10T12:18:25.698+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T12:18:25.759+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:18:25.790+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [queued]>
+[2025-09-10T12:18:25.794+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T12:18:25.834+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 12:13:04.358404+00:00
+[2025-09-10T12:18:25.845+0000] {standard_task_runner.py:63} INFO - Started process 803 to run task
+[2025-09-10T12:18:25.855+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T12:13:04.358404+00:00', '--job-id', '463', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpeic4h5pl']
+[2025-09-10T12:18:25.860+0000] {standard_task_runner.py:91} INFO - Job 463: Subtask wait_for_train_api
+[2025-09-10T12:18:26.123+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T12:13:04.358404+00:00 [running]> on host 957802449c84
+[2025-09-10T12:18:26.408+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T12:13:04.358404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T12:13:04.358404+00:00'
+[2025-09-10T12:18:26.416+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T12:18:26.492+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T12:18:26.497+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T12:18:26.527+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2025-09-10T12:18:26.528+0000] {http.py:179} ERROR - {"detail":"Not Found"}
+[2025-09-10T12:18:26.529+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T12:18:26.530+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 281, in execute
+    raise AirflowSensorTimeout(message)
+airflow.exceptions.AirflowSensorTimeout: Sensor has timed out; run duration of 311.330062 seconds exceeds the specified timeout of 300.0.
+[2025-09-10T12:18:26.547+0000] {taskinstance.py:1206} INFO - Immediate failure requested. Marking task as FAILED. dag_id=train_model_dag_batch_iterative_85000, task_id=wait_for_train_api, run_id=manual__2025-09-10T12:13:04.358404+00:00, execution_date=20250910T121304, start_date=20250910T121825, end_date=20250910T121826
+[2025-09-10T12:18:26.580+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 463 for task wait_for_train_api (Sensor has timed out; run duration of 311.330062 seconds exceeds the specified timeout of 300.0.; 803)
+[2025-09-10T12:18:26.597+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-09-10T12:18:26.656+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T12:18:26.664+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

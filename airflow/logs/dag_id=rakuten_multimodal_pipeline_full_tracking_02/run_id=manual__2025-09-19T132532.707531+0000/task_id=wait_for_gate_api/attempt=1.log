@@ -1,0 +1,21 @@
+[2025-09-19T13:25:46.583+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-19T13:25:46.611+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.wait_for_gate_api manual__2025-09-19T13:25:32.707531+00:00 [queued]>
+[2025-09-19T13:25:46.626+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.wait_for_gate_api manual__2025-09-19T13:25:32.707531+00:00 [queued]>
+[2025-09-19T13:25:46.627+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-09-19T13:25:46.672+0000] {taskinstance.py:2888} INFO - Executing <Task(HttpSensor): wait_for_gate_api> on 2025-09-19 13:25:32.707531+00:00
+[2025-09-19T13:25:46.702+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'rakuten_multimodal_pipeline_full_tracking_02', 'wait_for_gate_api', 'manual__2025-09-19T13:25:32.707531+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/train_dag_42.py', '--cfg-path', '/tmp/tmpha_ii8mc']
+[2025-09-19T13:25:46.720+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1334) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-09-19T13:25:46.721+0000] {standard_task_runner.py:105} INFO - Job 29: Subtask wait_for_gate_api
+[2025-09-19T13:25:46.724+0000] {standard_task_runner.py:72} INFO - Started process 1335 to run task
+[2025-09-19T13:25:46.966+0000] {task_command.py:467} INFO - Running <TaskInstance: rakuten_multimodal_pipeline_full_tracking_02.wait_for_gate_api manual__2025-09-19T13:25:32.707531+00:00 [running]> on host fbc9f2e41b10
+[2025-09-19T13:25:47.431+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='rakuten_multimodal_pipeline_full_tracking_02' AIRFLOW_CTX_TASK_ID='wait_for_gate_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T13:25:32.707531+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-19T13:25:32.707531+00:00'
+[2025-09-19T13:25:47.435+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-09-19T13:25:47.462+0000] {baseoperator.py:405} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2025-09-19T13:25:47.481+0000] {http.py:137} INFO - Poking: /health
+[2025-09-19T13:25:47.484+0000] {base.py:84} INFO - Retrieving connection 'gate_api'
+[2025-09-19T13:25:47.510+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2025-09-19T13:25:47.573+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-09-19T13:25:47.576+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=rakuten_multimodal_pipeline_full_tracking_02, task_id=wait_for_gate_api, run_id=manual__2025-09-19T13:25:32.707531+00:00, execution_date=20250919T132532, start_date=20250919T132546, end_date=20250919T132547
+[2025-09-19T13:25:47.640+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-19T13:25:47.734+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-19T13:25:47.739+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,19 @@
+[2025-09-16T18:00:00.281+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-16T18:00:00.317+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.get_auth_token manual__2025-09-16T17:59:51.151360+00:00 [queued]>
+[2025-09-16T18:00:00.334+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.get_auth_token manual__2025-09-16T17:59:51.151360+00:00 [queued]>
+[2025-09-16T18:00:00.335+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-09-16T18:00:00.352+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): get_auth_token> on 2025-09-16 17:59:51.151360+00:00
+[2025-09-16T18:00:00.364+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'get_auth_token', 'manual__2025-09-16T17:59:51.151360+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpzemig_bh']
+[2025-09-16T18:00:00.368+0000] {standard_task_runner.py:105} INFO - Job 7: Subtask get_auth_token
+[2025-09-16T18:00:00.370+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=411) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-09-16T18:00:00.373+0000] {standard_task_runner.py:72} INFO - Started process 413 to run task
+[2025-09-16T18:00:00.455+0000] {task_command.py:467} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.get_auth_token manual__2025-09-16T17:59:51.151360+00:00 [running]> on host 57ddf28710aa
+[2025-09-16T18:00:00.620+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='get_auth_token' AIRFLOW_CTX_EXECUTION_DATE='2025-09-16T17:59:51.151360+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-16T17:59:51.151360+00:00'
+[2025-09-16T18:00:00.623+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-09-16T18:00:00.704+0000] {python.py:240} INFO - Done. Returned value was: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NTgwNTY0MDAsImlhdCI6MTc1ODA0NTYwMH0.p2VZ_ROp4VsoLisBvpQUkyqhxxuoig45p1IcOS3LRDA
+[2025-09-16T18:00:00.729+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-09-16T18:00:00.730+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=train_model_dag_batch_iterative_85000, task_id=get_auth_token, run_id=manual__2025-09-16T17:59:51.151360+00:00, execution_date=20250916T175951, start_date=20250916T180000, end_date=20250916T180000
+[2025-09-16T18:00:00.752+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-16T18:00:00.768+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py:1378 AirflowProviderDeprecationWarning: Call to deprecated class SimpleHttpOperator. (Class `SimpleHttpOperator` is deprecated and will be removed in a future release. Please use `HttpOperator` instead.)
+[2025-09-16T18:00:00.794+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-16T18:00:00.796+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

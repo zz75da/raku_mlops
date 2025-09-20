@@ -1,0 +1,22 @@
+[2025-09-14T16:33:11.664+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-14T16:33:11.692+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_preprocess_api manual__2025-09-14T16:33:06.692176+00:00 [queued]>
+[2025-09-14T16:33:11.714+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_preprocess_api manual__2025-09-14T16:33:06.692176+00:00 [queued]>
+[2025-09-14T16:33:11.715+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-09-14T16:33:11.734+0000] {taskinstance.py:2888} INFO - Executing <Task(HttpSensor): wait_for_preprocess_api> on 2025-09-14 16:33:06.692176+00:00
+[2025-09-14T16:33:11.755+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=303) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-09-14T16:33:11.748+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_preprocess_api', 'manual__2025-09-14T16:33:06.692176+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmp3aec5d8f']
+[2025-09-14T16:33:11.756+0000] {standard_task_runner.py:72} INFO - Started process 313 to run task
+[2025-09-14T16:33:11.756+0000] {standard_task_runner.py:105} INFO - Job 8: Subtask wait_for_preprocess_api
+[2025-09-14T16:33:11.906+0000] {task_command.py:467} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_preprocess_api manual__2025-09-14T16:33:06.692176+00:00 [running]> on host 28a36d2554cb
+[2025-09-14T16:33:12.095+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_preprocess_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-14T16:33:06.692176+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-14T16:33:06.692176+00:00'
+[2025-09-14T16:33:12.099+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-09-14T16:33:12.124+0000] {baseoperator.py:405} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2025-09-14T16:33:12.135+0000] {http.py:137} INFO - Poking: /health
+[2025-09-14T16:33:12.143+0000] {base.py:84} INFO - Retrieving connection 'preprocess_api'
+[2025-09-14T16:33:12.160+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2025-09-14T16:33:12.172+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-09-14T16:33:12.173+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=train_model_dag_batch_iterative_85000, task_id=wait_for_preprocess_api, run_id=manual__2025-09-14T16:33:06.692176+00:00, execution_date=20250914T163306, start_date=20250914T163311, end_date=20250914T163312
+[2025-09-14T16:33:12.222+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-14T16:33:12.238+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py:1378 AirflowProviderDeprecationWarning: Call to deprecated class SimpleHttpOperator. (Class `SimpleHttpOperator` is deprecated and will be removed in a future release. Please use `HttpOperator` instead.)
+[2025-09-14T16:33:12.268+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-14T16:33:12.272+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

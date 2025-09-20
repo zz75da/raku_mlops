@@ -1,0 +1,92 @@
+[2025-09-10T08:13:12.953+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-10T08:13:13.038+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T08:12:59.280046+00:00 [queued]>
+[2025-09-10T08:13:13.083+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T08:12:59.280046+00:00 [queued]>
+[2025-09-10T08:13:13.086+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-10T08:13:13.128+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): wait_for_train_api> on 2025-09-10 08:12:59.280046+00:00
+[2025-09-10T08:13:13.146+0000] {standard_task_runner.py:63} INFO - Started process 603 to run task
+[2025-09-10T08:13:13.154+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'wait_for_train_api', 'manual__2025-09-10T08:12:59.280046+00:00', '--job-id', '427', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpix131xsk']
+[2025-09-10T08:13:13.161+0000] {standard_task_runner.py:91} INFO - Job 427: Subtask wait_for_train_api
+[2025-09-10T08:13:13.916+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.wait_for_train_api manual__2025-09-10T08:12:59.280046+00:00 [running]> on host 30fe5df4d997
+[2025-09-10T08:13:15.195+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='wait_for_train_api' AIRFLOW_CTX_EXECUTION_DATE='2025-09-10T08:12:59.280046+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-10T08:12:59.280046+00:00'
+[2025-09-10T08:13:15.208+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-10T08:13:15.411+0000] {http.py:130} INFO - Poking: /health
+[2025-09-10T08:13:15.429+0000] {base.py:84} INFO - Using connection ID 'train_api' for task execution.
+[2025-09-10T08:13:15.490+0000] {http.py:221} WARNING - HTTPConnectionPool(host='train-api', port=5002): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc5b617e970>: Failed to establish a new connection: [Errno 111] Connection refused')) Tenacity will retry to execute the operation
+[2025-09-10T08:13:15.493+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-10T08:13:15.495+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fc5b617e970>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='train-api', port=5002): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc5b617e970>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 264, in execute
+    raise e
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 246, in execute
+    poke_return = self.poke(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/sensors/http.py", line 132, in poke
+    response = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 166, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 222, in run_and_check
+    raise ex
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 214, in run_and_check
+    response = session.send(prepped_request, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='train-api', port=5002): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc5b617e970>: Failed to establish a new connection: [Errno 111] Connection refused'))
+[2025-09-10T08:13:15.629+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=train_model_dag_batch_iterative_85000, task_id=wait_for_train_api, run_id=manual__2025-09-10T08:12:59.280046+00:00, execution_date=20250910T081259, start_date=20250910T081313, end_date=20250910T081315
+[2025-09-10T08:13:15.717+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 427 for task wait_for_train_api (HTTPConnectionPool(host='train-api', port=5002): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc5b617e970>: Failed to establish a new connection: [Errno 111] Connection refused')); 603)
+[2025-09-10T08:13:15.757+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-09-10T08:13:15.003+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-10T08:13:15.010+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

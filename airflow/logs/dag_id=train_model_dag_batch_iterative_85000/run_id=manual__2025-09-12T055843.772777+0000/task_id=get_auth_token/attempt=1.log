@@ -1,0 +1,17 @@
+[2025-09-12T05:58:54.194+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-12T05:58:54.250+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.get_auth_token manual__2025-09-12T05:58:43.772777+00:00 [queued]>
+[2025-09-12T05:58:54.282+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_dag_batch_iterative_85000.get_auth_token manual__2025-09-12T05:58:43.772777+00:00 [queued]>
+[2025-09-12T05:58:54.283+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-09-12T05:58:54.316+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): get_auth_token> on 2025-09-12 05:58:43.772777+00:00
+[2025-09-12T05:58:54.334+0000] {standard_task_runner.py:63} INFO - Started process 951 to run task
+[2025-09-12T05:58:54.342+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'train_model_dag_batch_iterative_85000', 'get_auth_token', 'manual__2025-09-12T05:58:43.772777+00:00', '--job-id', '562', '--raw', '--subdir', 'DAGS_FOLDER/train_dag.py', '--cfg-path', '/tmp/tmpd4e1daoe']
+[2025-09-12T05:58:54.346+0000] {standard_task_runner.py:91} INFO - Job 562: Subtask get_auth_token
+[2025-09-12T05:58:54.460+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model_dag_batch_iterative_85000.get_auth_token manual__2025-09-12T05:58:43.772777+00:00 [running]> on host 9c1b328bc1f4
+[2025-09-12T05:58:54.640+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='train_model_dag_batch_iterative_85000' AIRFLOW_CTX_TASK_ID='get_auth_token' AIRFLOW_CTX_EXECUTION_DATE='2025-09-12T05:58:43.772777+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-12T05:58:43.772777+00:00'
+[2025-09-12T05:58:54.643+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-12T05:58:54.813+0000] {python.py:237} INFO - Done. Returned value was: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NTc2Njc1MzQsImlhdCI6MTc1NzY1NjczNH0.VDfEexO4JPA2qKMKd1mYNhRqLJ5EUykR4sTd5Mrt3IU
+[2025-09-12T05:58:54.814+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-12T05:58:54.856+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=train_model_dag_batch_iterative_85000, task_id=get_auth_token, run_id=manual__2025-09-12T05:58:43.772777+00:00, execution_date=20250912T055843, start_date=20250912T055854, end_date=20250912T055854
+[2025-09-12T05:58:54.916+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-12T05:58:54.971+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-12T05:58:54.975+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
