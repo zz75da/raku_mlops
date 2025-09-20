@@ -1,0 +1,5 @@
+['remote "origin"']
+    url = s3://raku_mlops
+    access_key_id = zz75da
+    secret_access_key = 11797aae1b0bbdbb1a9094beb23522be5b3e4945
+    endpointurl = https://dagshub.com/api/v1/repo-buckets/s3/zz75da
